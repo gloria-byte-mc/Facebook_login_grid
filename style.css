@@ -1,0 +1,107 @@
+.container{
+  display: grid;
+  background-color: #f0f2f5;
+  height: 730px;
+  width:100%;
+  grid-template-columns: auto auto;
+  column-gap:20px !important;
+}
+.container > div{
+  margin-top: 130px;
+}
+.container2{
+  height: 360px;
+  width:550px;
+  background-color: #f0f2f5;
+  margin-left: 460px;
+  margin-top: 200px !important;
+}
+.container3{
+  background-color: white;
+  height: 370px;
+  width:400px;
+  margin-left: -400px;
+  border-radius: 6px;
+  box-shadow:  0 2px 4px rgba(28, 28, 28, 0.4);
+}
+.input1{
+        margin-top: 10px;
+        margin-left: 15px;
+        width:370px;
+        height:55px;
+        border: 1px solid rgb(232, 229, 229);
+        border-radius: 6px;
+        outline: none;
+        transition: border 0.2s, box-shadow 0.2s;
+        caret-color: #1877F2;
+      }
+      .input1:focus{
+        border: 1px solid #1877F2;
+        caret-color: #1877F2;
+        box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2 );
+      }
+     .input1::placeholder{
+      padding-left: 20px;
+      font-size: larger;
+      font-family: Arial, Helvetica, sans-serif;
+      color:#90949c;
+     
+     }
+     .button1{
+     margin-top: 20px;
+     margin-left: 15px;
+     width:370px;
+     height:50px;
+     border: none;
+     border-radius:6px ;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background-color: #1877F2;
+    font-size: larger;
+     }
+     .button1:hover{
+      background-color: #3489f9;
+     }
+     #button2{
+      margin-top: 15px;
+      margin-left:110px;
+     background-color: rgb(66, 183, 42);
+     height: 45px;
+     width: 200px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+     }
+     #button2:hover{
+      background-color: rgb(60, 167, 39);
+     }
+     #paragraph1:hover{
+      text-decoration: underline;
+     }
+      #paragraph2{
+      margin-top: 58px;
+      margin-left:37px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:15px;
+     }
+     #bold1:hover{
+     text-decoration: underline;
+     }
+.footer{
+      margin-top: 30px;
+     margin-left: 475px;
+     }
+     .footer a {
+      text-decoration: none;
+      color:#8a8d91;
+      font-size: 13px;
+      font-family: Arial, Helvetica, sans-serif;
+     
+     }
+     .footer a:hover{
+      text-decoration: underline;
+     }

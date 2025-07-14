@@ -105,3 +105,19 @@
      .footer a:hover{
       text-decoration: underline;
      }
+
+     @media screen and (max-width:1440px) {
+      
+      .container2{
+        margin-left: 200px !important;
+      }
+      .container3{
+        margin-left: -200px;
+      }
+      .footer{
+        margin-left: 230px;
+      }
+      #hr2{
+      width:85%;
+      }
+     }

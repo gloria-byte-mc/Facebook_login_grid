@@ -6,9 +6,19 @@
   grid-template-columns: auto auto;
   column-gap:20px !important;
 }
+#head{
+  display: none;
+}
 .container > div{
   margin-top: 130px;
 }
+.clearing{
+  display: none;
+}
+.container5{
+  display: none;
+}
+
 .container2{
   height: 360px;
   width:550px;
@@ -35,6 +45,17 @@
         transition: border 0.2s, box-shadow 0.2s;
         caret-color: #1877F2;
       }
+      .input2{
+          margin-top: 10px;
+        margin-left: 15px;
+        width:370px;
+        height:55px;
+         border: 1px solid rgb(232, 229, 229);
+        border-radius: 6px ;
+        display: none;
+      }
+      
+
       .input1:focus{
         border: 1px solid #1877F2;
         caret-color: #1877F2;
@@ -88,6 +109,10 @@
       font-family: Arial, Helvetica, sans-serif;
       font-size:15px;
      }
+    
+     #paragraph8{
+      display: none;
+     }
      #bold1:hover{
      text-decoration: underline;
      }
@@ -114,82 +139,164 @@
       .container3{
         margin-left: -200px;
       }
+      
       .footer{
         margin-left: 230px;
       }
       #hr2{
       width:85%;
       }
+      #head{
+        display: none;
+      }
      }
 
      @media screen and (max-width:767px) {
 
       .container{
-        height: 350px !important;
+        height: 700px !important;
         overflow-x:hidden ;
+        background-color: white;
       }
+      .clearing{
+        display: block;
+      }
+      .container5{
+
+      width: 100px;
+      height: 50px;
+        display: block;
+        margin-top: 60px !important;
+        margin-left:180px;
+        
+      }
+     
       .container2{
         margin-left:0px !important; 
         margin-top: 100px !important;
+        background-color: white;
         
       }
       .container2 img{
         width:150px !important;
+        display: none;
+      }
+      #head{
+        display: none;
       }
       #paragraph7{
         font-size: 10px !important;
         margin-top: -10px !important;
         padding-left: 14px !important;
+        display: none;
+        
       }
       .container3{
-        height: 180px;
-        width: 180px;
-        margin-left: -360px;
-        margin-top:80px !important ;
+      
+        height: auto !important;
+        min-height:500px ;
+       
+        width:350px;
+        margin-left: -515px;
+        margin-top:50px !important ;
+      }
+      .container3{
+        box-shadow: none;
       }
       .input1{
-        height:22px;
-        width: 165px;
+        height:45px;
+        width: 300px;
         margin-left: 5px;
-        margin-top: 5px;
+        margin-top: 8px;
+      }
+
+      #input3{
+        display: none;
+      }
+      .input2{
+        display: block;
+        height:45px;
+        width: 300px;
+        margin-left: 5px;
+        margin-top: 8px;
       }
       .input1::placeholder{
         padding-left: 6.5px;
-        font-size: smaller;
+        font-size: medium;
+      }
+      .input2::placeholder{
+         padding-left: 6.5px;
+        font-size: medium;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #90949c;
+      }
+
+      .input1:focus{
+        border: 1px solid black !important;
+        caret-color: black !important;
+        box-shadow: none !important;
+      }
+      .input2:focus{
+         border: 1px solid black ;
+        caret-color: black;
+        box-shadow: none;
+        outline: none;
       }
       .button1{
-        width: 170px;
-        height: 22px;
+        width: 300px;
+        height: 40px;
         margin-top: 10px;
         margin-left: 5px;
-        font-size: small;
+        font-size: medium;
+        font-weight: 100;
+        border-radius: 25px !important;
       }
       #paragraph1{
-        font-size: 10px !important;
-        padding-left: 50px !important;
+        font-size: 15px !important;
+        padding-left: 80px !important;
         padding-top: 0px !important;
+        color: rgb(45, 45, 45) !important;
+        
       }
       #hr1{
         margin-left: 11px !important;
         margin-top: 10px !important;
+        display: none;
       }
       #button2{
-        height: 25px;
-        width: 110px;
+        height: 40px;
+        width: 300px;
         font-size: x-small;
-        margin-left: 40px;
-        margin-top: 5px;
+        margin-left: 5px;
+        margin-top: 100px;
+        border-radius: 25px;
+        background-color: transparent;
+        border: 1px solid #1877F2;
+        color: #1877F2;
+        font-size: medium;
+        font-weight: 100;
       }
       #paragraph2{
         font-size:7px;
         margin-top: 30px;
         margin-left: 10px;
+        display: none;
 
+      }
+     
+      #paragraph8{
+        display: block;
+        margin-left: 130px;
+        font-weight:semi-bold;
+        margin-top: 5px;
+      }
+      #paragraph8 img{
+        height: 32px;
       }
       .footer{
         margin-left: 10px;
         margin-top: 10px;
-      
+       display: none;
       }
       .footer a{
        font-size:4px;
@@ -227,5 +334,82 @@
         margin-top: -10px;
         margin-bottom: -10px;
       }
+ #head{
+  display: flex;
+  font-size: 15px;
+  font-weight: 100;
+  align-items: center !important;
+  justify-content: center;
+ }
     
+     }
+     @media screen and (width:320px) {
+      .container3{
+        margin-left: -570px !important;
+      }
+      .container5 img{
+        margin-left: -50px;
+      }
+      .input1{
+        width: 280px;
+      }
+      .input2{
+        width: 280px;
+      }
+      .button1{
+        width: 285px;
+      }
+      #button2{
+        width: 285px;
+      }
+     }
+
+     @media screen and (width:344px) {
+      .container3{
+        margin-left: -560px;
+      }
+      .container5 img{
+        margin-left: -40px;
+      }
+     }
+     @media screen and (width:375px) {
+      .container3{
+        margin-left:-550px ;
+      }
+      .container5 img{
+        margin-left:-30px ;
+      }
+
+     }
+     @media  screen and (min-width:768px) and (max-width:1024px) {
+      .container2{
+        margin-left: 10px !important;
+      }
+      #paragraph7{
+        font-size: 23px !important;
+      }
+      .footer{
+        margin-left: 28px;
+      }
+      #hr2{
+        width: 98%;
+      }
+     }
+     @media  screen and (width:820px) {
+     .container{
+      grid-template-columns: auto;
+      row-gap: -100px !important;
+     }
+     .container2{
+      height: 50px;
+      margin-top: 50px !important;
+      margin-left: 170px !important;
+     }
+     .container3{
+      margin-left: 200px;
+      margin-top: 20px !important;
+     }
+     .footer a{
+      font-size: 9px;
+     }
      }

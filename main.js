@@ -1,3 +1,5 @@
+ 
+ /*
  // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-analytics.js";
@@ -74,3 +76,69 @@ loginBtn.addEventListener("click", (event) => {
       alert("Error: " + error.message);
     });
 });
+*/
+
+
+ const create = document.getElementById('button2');
+ create.addEventListener("click", (event)=>{
+  event.preventDefault()
+  window.location.href = "create-account.html";
+ });
+
+
+
+
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBZi03D8zM1-07ni5iIdTxmLoVq_wy7iI8",
+  authDomain: "create-account-fb.firebaseapp.com",
+  projectId: "create-account-fb",
+  storageBucket: "create-account-fb.firebasestorage.app",
+  messagingSenderId: "1022903792049",
+  appId: "1:1022903792049:web:5022c8e9fe42a5d63a0d90"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const loginBtn = document.getElementById('submit');
+
+loginBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  const email = document.getElementById('input3').value;
+  const password = document.getElementById('user-password').value;
+  const emailInput = document.getElementById('input3');
+  const passwordInput = document.getElementById('user-password');
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Successfully logged in
+      const user = userCredential.user;
+      alert("Login successful!");
+      window.location.href = "dashboard.html"; 
+      
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      alert("Login failed: " + errorMessage);
+    });
+    emailInput.value = "";
+    passwordInput.value = "";
+});
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+

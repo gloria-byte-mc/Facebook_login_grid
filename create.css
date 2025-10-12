@@ -5,11 +5,12 @@
 }
 
 .create-container{
-  height: 70vh;
+  height: fit-content;
   background-color: #f0f2f5;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 4rem;
 }
 
 .create-container img{
@@ -57,6 +58,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+  position: relative;
 }
 .name-container input{
   padding-left: 0.6875rem;
@@ -316,6 +318,13 @@ display: flex;
    color: #737373;
 }
 
+
+#firstName-error{
+  position: absolute;
+  left: 40%;
+  color: red;
+  display: none;
+}
 @media screen and (max-width:1440px) {
   .create-account-footer{
     padding-left: 20rem;

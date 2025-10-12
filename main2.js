@@ -48,6 +48,7 @@
      selectMonth: selectMonth,
      selectYear: selectYear,
      selectedGender: selectedGender,
+     
 }).then(()=>{
  window.location.href = "dashboard.html";
 });
@@ -62,6 +63,23 @@
   });
  
   });
+
+
+  const nameError = document.querySelector('#firstName-error');
+  
+  function validateName(){
+const firstNameInput = document.querySelector('#firstname').value;
+
+if(firstNameInput.length === 0){
+  nameError.style.display = "inline";
+  return false;
+}
+  }
+
+
+
+
+
 
   
 

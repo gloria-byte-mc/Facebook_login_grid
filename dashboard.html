@@ -3,9 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Facebook</title>
+ <link rel="icon" href="https://www.facebook.com/favicon.ico" type="image/x-icon">
+ <link rel="stylesheet" href="dashboard.css">
+ <script src="https://kit.fontawesome.com/cc4feaa5b5.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-  <h1>Logged in </h1>
+
+  <nav class="facebook-nav">
+  <a href="index.html"> <img src="images/Favicon5.png" alt=""></a>
+   <button class="search">
+  <i class="fa-solid fa-magnifying-glass"></i>
+     Search Facebook
+   </button>
+
+   <div class="facebook-pages">
+  <button><i class="fa-solid fa-house" id="home"></i></button>
+  <button><i class="fa-solid fa-users"></i></button>
+  <button><i class="fa-solid fa-user-group"></i></button>
+   </div>
+
+
+   <div class="facebook-icons">
+
+    <button>Find friends</button>
+    <span class="account"></span>
+
+   </div>
+ 
+  </nav>
+
+
+  <div class="facebook-container">
+
+    <div class="facebook-container-grids">
+    <div class="facebook-services">
+    
+<div class="service1">
+<span class="user-profile"> <!-- <i class="fa-solid fa-user"></i> --> <img src="" alt=""></span>
+<span class="user-name"></span>
+</div>
+
+<button><span><i class="fa-solid fa-circle-notch" style="color: purple;"></i></span>Meta AI</button>
+<button><span><i class="fa-solid fa-user-group" style="color: red;"></i></span>Friends</button>
+<button><span><img src="images/Favicon5.png" alt=""  style="height: 100%; max-height: 30px;"></span>Welcome</button>
+<button><span><i class="fa-solid fa-clock" style="color: orange;"></i></span>Memories</button>
+<button><span><i class="fa-solid fa-bookmark" style="color: greenyellow;"></i></span>Saved</button>
+<button><span><i class="fa-solid fa-users" style="color: violet;"></i></span>Groups</button>
+<button><span><i class="fa-solid fa-video" style="color: olivedrab;"></i></span>Video</button>
+
+    </div>
+
+    <div class="facebook-posts">
+ 
+ <div class="post1">
+ <img src="images/profile-img.png" alt="">
+
+ <div style="display: flex; flex-direction: column;">
+  <a href="#">Outdoor Cooking . <span style="color: #0866ff;">Follow</span></a>
+  <p>Recommended post . 15h .</p>
+ </div>
+
+ <div class="x-mark">
+  <i class="fa-solid fa-ellipsis"></i>
+  <i class="fa-solid fa-xmark"></i>
+ </div>
+
+ </div>
+
+ <div class="post2">
+ <p>Bringing people together, one flame and flavor at a time.</p>
+ </div>
+
+ <div class="post3">
+<img src="images/outdoor-cooking.jpg" alt="">
+ </div>
+
+ <div class="post4">
+  <div class="post4-a">
+     <div class="post4-a-img">
+      <img src="images/thumps-up.svg" alt="">
+      <img src="images/like-button.svg" alt="">
+     </div>
+
+     <div style="display: flex; flex-direction: row; gap: 0.5rem;">
+      <a href="#">1.5K comments</a>
+      <a href="#">77 shares</a>
+     </div>
+
+
+  </div>
+
+  <hr>
+
+  <div class="post4-b">
+  <button> <span><i class="fa-regular fa-thumbs-up"></i></span>Like</button>
+  <button><span><i class="fa-regular fa-comment"></i></span>Comment</button>
+  <button><span><i class="fa-solid fa-share"></i></span>Share</button>
+  </div>
+  
+ </div>
+
+    </div>
+
+    <div class="group-chats">
+   <h3>Group chats</h3>
+
+   <button><span><i class="fa-solid fa-plus"></i></span>Create group chat
+    
+   </button>
+    </div>
+    </div>
+    
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBZi03D8zM1-07ni5iIdTxmLoVq_wy7iI8",
+    authDomain: "create-account-fb.firebaseapp.com",
+    projectId: "create-account-fb",
+    storageBucket: "create-account-fb.firebasestorage.app",
+    messagingSenderId: "1022903792049",
+    appId: "1:1022903792049:web:5022c8e9fe42a5d63a0d90"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  // check if user is logged in
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      const userRef = doc(db, "users", user.uid);
+      const userSnap = await getDoc(userRef);
+
+      if (userSnap.exists()) {
+        const data = userSnap.data();
+        const fullName = `${data.firstName} ${data.surName}`;
+        document.querySelector(".user-name").textContent = fullName;
+        document.querySelector(".user-profile").innerHTML = `
+       <img src="${data.profilePic}" alt="Profile Picture">
+`;
+
+        
+      } else {
+        console.log("No such user document!");
+      }
+    } else {
+      // if not logged in, redirect to signup/login page
+      window.location.href = "index.html"; 
+    }
+  });
+  </script>
+  
 </body>
 </html>

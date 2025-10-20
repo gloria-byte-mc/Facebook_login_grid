@@ -177,6 +177,7 @@
   max-width: 424px;
   border: 1px solid #ccd0d5;
   font-size: 15px;
+  position: relative;
 }
 
 .people-you-may-know{
@@ -324,6 +325,42 @@ display: flex;
   left: 40%;
   color: red;
   display: none;
+}
+#firstName-error2{
+  position: absolute;
+  left: 90%;
+  color: red;
+  display: none;
+}
+
+#email-address-error{
+color: red;
+position: absolute;
+left: 60%;
+top: 37%;
+display: none;
+}
+#password-error2{
+color: red;
+position: absolute;
+left: 60%;
+top: 41.5%;
+display: none;
+}
+
+#genderError{
+color: red;
+position: absolute;
+left: 22.5%;
+top: 33%;
+display: none;
+}
+#ageError{
+  color: red;
+  position: absolute;
+  left: 19%;
+top: 25%;
+display: none;
 }
 @media screen and (max-width:1440px) {
   .create-account-footer{

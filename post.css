@@ -1,0 +1,51 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.post-container{
+height: 100vh;
+background-color: #f2f0f5;
+display: flex;
+}
+
+.post1{
+  display: flex;
+  flex-direction: row;
+    margin: auto 0;
+  width: 100%;
+  gap: 10px;
+  justify-content: center;
+
+}
+.post1 form{
+  display: flex;
+  height: 400px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: blueviolet;
+  width: 100%;
+  max-width: 300px;
+  border: none;
+  border-radius: 10px;
+}
+form span{
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: flex;
+ 
+  align-items: center;
+  flex-direction: column;
+}
+
+#form2{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#form2 input{
+  width: 80%;
+  padding: 10px 0;
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create stories | Facebook</title>
+  <link rel="icon" href="https://www.facebook.com/favicon.ico" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/cc4feaa5b5.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="post.css">
+</head>
+<body>
+
+
+  <div class="post-container">
+    <div class="post1">
+
+      <form action="" id="form1">
+        <input type="file" id="imageCreate" accept="image/*" style="display: none;">
+
+        <span>
+          <i class="fa-solid fa-image"></i>
+          <p>Create a Photo Story</p>
+        </span>
+      </form>
+
+      <form action="
+      " id="form2">
+
+      <span>
+        <i class="fa-solid fa-font"></i>
+        <p>Create a Text Story</p>
+      </span>
+
+       <input type="text" id="text1">
+     
+
+    
+    </form>
+
+    <img src="images/outdoor-cooking.jpg" alt="" id="post-image" style="display: none;"><p id="p2" style="display: none;">Bringing people together, one flame and flavor at a time.</p>
+
+    
+  
+
+    </div>
+  </div>
+
+
+  <script type="module">
+    const imageCreate = document.getElementById('imageCreate');
+    const formPost = document.getElementById('form1');
+    const postImage = document.getElementById('post-image');
+
+    formPost.addEventListener('click', ()=>{
+    imageCreate.click();
+     });
+    
+   
+
+/*
+    imageCreate.addEventListener('change', () => {
+  const file = imageCreate.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const base64Image = e.target.result; // image in Base64 format
+      postImage.src = base64Image;
+      postImage.style.display = 'block';
+
+      // Save Base64 string to localStorage
+      localStorage.setItem('storyImage', base64Image);
+
+      // Go back to dashboard
+      
+    };
+    reader.readAsDataURL(file);
+  }
+});
+*/
+
+
+
+imageCreate.addEventListener('change', () => {
+  const file = imageCreate.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const base64Image = e.target.result; // image in Base64 format
+      postImage.src = base64Image;
+
+     // postImage.style.display = 'block';
+
+ // ✅ Show the div with class "user-post"
+      const userPostDiv = document.querySelector('.user-post');
+      if (userPostDiv) {
+        userPostDiv.style.display = 'block';
+      }
+
+
+
+      // ✅ Get the current user's username or ID
+      const currentUser = localStorage.getItem('currentUser'); // e.g. set when user logs in
+
+      // ✅ If a user is logged in, save their story under their unique key
+      if (currentUser) {
+        localStorage.setItem(`storyImage_${currentUser}`, base64Image);
+      } else {
+        console.warn("No currentUser found in localStorage. Please set it during login.");
+      }
+
+      // ✅ Redirect to dashboard
+    
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
+
+
+
+
+
+
+
+const postText = document.getElementById('text1');
+
+const currentUser = localStorage.getItem("currentUser");
+
+postText.addEventListener('keypress', (event) => {
+ 
+  if (event.key === 'Enter') {
+    event.preventDefault(); 
+    myFunction(); 
+  }
+});
+
+
+function myFunction(){
+  const slogan = document.getElementById('p2');
+
+  slogan.textContent = postText.value;
+
+   if (currentUser) {
+    localStorage.setItem(`postText_${currentUser}`, postText.value);
+    window.location.href = "dashboard.html";
+  } else {
+    console.warn("No current user logged in!");
+  }
+
+  postText.value = '';
+}
+
+window.addEventListener('load', () => {
+  if (currentUser) {
+    const savedText = localStorage.getItem(`postText_${currentUser}`);
+    if (savedText) {
+      document.getElementById('p2').textContent = savedText;
+    }
+  }
+
+ 
+});
+
+
+</script>
+  
+</body>
+</html>

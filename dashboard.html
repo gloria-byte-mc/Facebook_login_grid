@@ -28,7 +28,14 @@
    <div class="facebook-icons">
 
     <button>Find friends</button>
-    <span class="account"></span>
+    <span class="account" id="account"></span>
+
+
+    <div class="dropdown">
+      <a href="#">Profile</a>
+      <a href="#">Settings</a>
+      <a href="index.html">Logout</a>
+    </div>
 
    </div>
  
@@ -41,8 +48,8 @@
     <div class="facebook-services">
     
 <div class="service1">
-<span class="user-profile"> <!-- <i class="fa-solid fa-user"></i> --> <img src="" alt=""></span>
-<span class="user-name"></span>
+<span class="user-profile" id="user-profile"></span>
+<span class="user-name" id="usernaming"></span>
 </div>
 
 <button><span><i class="fa-solid fa-circle-notch" style="color: purple;"></i></span>Meta AI</button>
@@ -56,28 +63,75 @@
     </div>
 
     <div class="facebook-posts">
- 
- <div class="post1">
- <img src="images/profile-img.png" alt="">
+
+      <div class="upload-profile">
+       <div class="upload-text">
+         <p style="font-size: 1.5rem; font-weight: 600;">Upload a profile picture</p>
+         <p style="font-size: 1.3rem;">Add a photo so that friends can easily identify you</p>
+          <input type="file" id="imageInput" accept="image/*" style="display: none;">
+          <button id="uploadBtn">Add Picture</button>
+       </div>
+
+       <div class="upload-image">
+        <span class="image-preview" id="imagePreview"></span>
+       </div>
+      </div>
+
+      <div class="search-friends">
+        <p style="font-size: 1.5rem; font-weight: 600;">Find people you know</p>
+        <p style="font-size: 1.3rem;">Search by name or look for schoolmates and colleagues.</p>
+        
+        <input id="search-button" placeholder="Search by name">
+        
+
+       <!-- <i class="fa-solid fa-magnifying-glass"></i>Search by name</button >
+        -->
+       
+        
+        
+
+      </div>
+
+      <div class="create-post">
+       <div class="create1">
+        <div class="create-span">
+        <span>+</span>
+        </div>
+
+        <div class="create2">
+          <p class="create2p-1">Create story</p>
+          <p class="create2p-2">Share a photo or write something.</p>
+        </div>
+       </div>
+      </div>
+
+
+ <div class="user-post">
+ <div class="post1" >
+  <!--
+ <img src="" alt="" id="post-profile">
+ -->
+
+ <span  class="post-span" id="post-profile"></span>
 
  <div style="display: flex; flex-direction: column;">
-  <a href="#">Outdoor Cooking . <span style="color: #0866ff;">Follow</span></a>
-  <p>Recommended post . 15h .</p>
+  <a href="#" id="link1"> <span style="color: #0866ff;">Follow</span></a>
+  <p id="p1">Recommended post . 15h .</p>
  </div>
 
  <div class="x-mark">
   <i class="fa-solid fa-ellipsis"></i>
-  <i class="fa-solid fa-xmark"></i>
+  <i class="fa-solid fa-xmark" id="x-delete"></i>
  </div>
 
  </div>
 
  <div class="post2">
- <p>Bringing people together, one flame and flavor at a time.</p>
+ <p id="p2"></p>
  </div>
 
  <div class="post3">
-<img src="images/outdoor-cooking.jpg" alt="">
+<img src="" alt="" id="post-image">
  </div>
 
  <div class="post4">
@@ -105,6 +159,8 @@
   
  </div>
 
+ </div>
+
     </div>
 
     <div class="group-chats">
@@ -117,24 +173,41 @@
     </div>
     
   </div>
+  <script type="module" src="dashboard.js"></script>
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
   import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
-  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+  import { getFirestore, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+  import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-storage.js";
+
 
   const firebaseConfig = {
+    
+    
+    /*
     apiKey: "AIzaSyBZi03D8zM1-07ni5iIdTxmLoVq_wy7iI8",
     authDomain: "create-account-fb.firebaseapp.com",
     projectId: "create-account-fb",
     storageBucket: "create-account-fb.firebasestorage.app",
     messagingSenderId: "1022903792049",
     appId: "1:1022903792049:web:5022c8e9fe42a5d63a0d90"
+    */
+
+  apiKey: "AIzaSyAUp__DiYzcr3KpbhpZxeqEPV9MEgWioGk",
+  authDomain: "create-account-fb2.firebaseapp.com",
+  projectId: "create-account-fb2",
+  storageBucket: "create-account-fb2.firebasestorage.com",
+  messagingSenderId: "947400156863",
+  appId: "1:947400156863:web:c4b1636fda119741b3080a"
+
+
   };
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db = getFirestore(app);
+  const storage = getStorage(app);
 
   // check if user is logged in
   onAuthStateChanged(auth, async (user) => {
@@ -146,8 +219,9 @@
         const data = userSnap.data();
         const fullName = `${data.firstName} ${data.surName}`;
         document.querySelector(".user-name").textContent = fullName;
+        document.querySelector("#link1").textContent = fullName;
         document.querySelector(".user-profile").innerHTML = `
-       <img src="${data.profilePic}" alt="Profile Picture">
+      
 `;
 
         
@@ -159,7 +233,229 @@
       window.location.href = "index.html"; 
     }
   });
-  </script>
+
+
+  const uploadBtn = document.getElementById('uploadBtn');
+  const imageInput = document.getElementById('imageInput');
+  const imagePreview = document.getElementById('imagePreview');
+  const Userprofile = document.getElementById('user-profile');
+  const Account = document.getElementById('account');
+  const postProfile = document.getElementById('post-profile');
+  const uploadProfileSection = document.querySelector('.upload-profile');
+
+
+  uploadBtn.addEventListener('click',()=>{
+    imageInput.click();
+   
+  });
+
+
+
+
+
+imageInput.addEventListener('change', async () => {
+  const file = imageInput.files[0];
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      const base64Image = e.target.result; // Base64 image
+
+      // ✅ Preview the image in the UI
+      imagePreview.style.backgroundImage = `url(${base64Image})`;
+      imagePreview.style.backgroundSize = "cover";
+      imagePreview.style.backgroundPosition = "center";
+
+      Userprofile.style.backgroundImage = `url(${base64Image})`;
+      Userprofile.style.backgroundSize = "cover";
+      Userprofile.style.backgroundPosition = "center";
+
+      Account.style.backgroundImage = `url(${base64Image})`;
+      Account.style.backgroundSize = "cover";
+      Account.style.backgroundPosition = "center";
+
+      postProfile.style.backgroundImage = `url(${base64Image})`;
+      postProfile.style.backgroundSize = "cover";
+      postProfile.style.backgroundPosition = "center";
+
+      // ✅ Hide upload section after upload
+      uploadProfileSection.style.display = "none";
+
+      // ✅ Save image in localStorage under current user's ID
+      const currentUser = localStorage.getItem("currentUser");
+      if (currentUser) {
+        localStorage.setItem(`profilePic_${currentUser}`, base64Image);
+      } else {
+        console.warn("No current user found in localStorage!");
+      }
+
+     // alert("Profile picture saved successfully!");
+    };
+
+    reader.readAsDataURL(file);
+  }
+});
+
+
+
+const create = document.querySelector('.create-post')
+create.addEventListener('click', ()=>{
+  window.location.href = "post.html"
+})
+
+
+
+/*
+window.addEventListener('DOMContentLoaded', () => {
+  const savedImage = localStorage.getItem('storyImage');
+  if (savedImage) {
+    const postImg = document.getElementById('post-image');
+    if (postImg) {
+      postImg.src = savedImage;
+    }
+  }
+});
+*/
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const currentUser = localStorage.getItem('currentUser');
+  if (currentUser) {
+    const savedImage = localStorage.getItem(`storyImage_${currentUser}`);
+    if (savedImage) {
+      document.getElementById('post-image').src = savedImage;
+      document.querySelector('.user-post').style.display = 'block';
+    }
+  }
+});
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  const currentUser = localStorage.getItem("currentUser");
+  if (currentUser) {
+    const savedImage = localStorage.getItem(`profilePic_${currentUser}`);
+    if (savedImage) {
+      const userProfile = document.getElementById("user-profile");
+      const account = document.getElementById("account");
+      const postProfile = document.getElementById("post-profile");
+
+      // Set image + consistent styling
+      [userProfile, account, postProfile].forEach(el => {
+        el.style.backgroundImage = `url(${savedImage})`;
+        el.style.backgroundSize = "cover";
+        el.style.backgroundPosition = "center";
+        el.style.backgroundRepeat = "no-repeat";
+      });
+      document.querySelector(".upload-profile").style.display = "none";
+    }
+  }
+});
+
+
+
+  Userprofile.addEventListener('click', () => {
+  const uploadSection = document.querySelector(".upload-profile");
+  
+ 
+  if (uploadSection.style.display === "flex") {
+    uploadSection.style.display = "none";
+  } else {
+    uploadSection.style.display = "flex";
+  }
+});
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const currentUser = localStorage.getItem('currentUser');
+  if (currentUser) {
+    const savedText = localStorage.getItem(`postText_${currentUser}`);
+    if (savedText) {
+      const postParagraph = document.getElementById('p2');
+      if (postParagraph) {
+        postParagraph.textContent = savedText;
+        postParagraph.style.display = 'block';
+      }
+    }
+  }
+});
+
+
+
+
+const params = new URLSearchParams(window.location.search);
+const viewedUid = params.get("uid");
+
+async function loadUserData(uid) {
+  const userRef = doc(db, "users", uid);
+  const snap = await getDoc(userRef);
+
+  if (!snap.exists()) {
+    alert("User not found.");
+    return;
+  }
+
+  const data = snap.data();
+  console.log("Loaded user:", data.firstName, data.surName);
+
+  // 🧠 Show data on the page
+  document.getElementById("usernaming").textContent = `${data.firstName} ${data.surName}`;
+ 
+}
+
+// ✅ Detect if we’re viewing someone else or the current user
+onAuthStateChanged(auth, (user) => {
+  if (viewedUid) {
+    // Show searched user
+    loadUserData(viewedUid);
+  } else if (user) {
+    // Show logged-in user
+    loadUserData(user.uid);
+  } else {
+    alert("Please log in first.");
+    window.location.href = "index.html";
+  }
+});
+
+
+const Delete = document.getElementById('x-delete');
+
+Delete.addEventListener('click', (event)=>{
+event.preventDefault();
+
+const userPostDiv = document.querySelector('.user-post');
+ userPostDiv.style.display = "none";
+});
+
+
+
+const Accounting = document.getElementById('account');
+const Dropdown = document.querySelector('.dropdown');
+
+Accounting.addEventListener('click', (event) => {
+  event.preventDefault();
+
+
+  const currentDisplay = window.getComputedStyle(Dropdown).display;
+
+  if (currentDisplay === 'flex') {
+    Dropdown.style.display = 'none';
+  } else {
+    Dropdown.style.display = 'flex';
+  }
+
+ 
+});
+document.addEventListener('click', (event) => {
+  if (!Accounting.contains(event.target) && !Dropdown.contains(event.target)) {
+    Dropdown.style.display = 'none';
+  }
+});
+
+
+</script>
+
+ 
   
 </body>
 </html>

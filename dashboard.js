@@ -63,7 +63,7 @@ console.log("Total docs in users:", (await getDocs(collection(db, "users"))).doc
         // Store found user in localStorage
         localStorage.setItem("viewUser", JSON.stringify(userData)); 
 
-        // Redirect to their account
+       
         window.location.href = `dashboard.html?uid=${userId}`;
       } else {
         alert("No user found with that name.");

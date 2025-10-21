@@ -366,4 +366,37 @@ display: none;
   .create-account-footer{
     padding-left: 20rem;
   }
+
+}
+
+@media screen and (min-width:1380px) {
+   #email-address-error{
+color: red;
+position: absolute;
+left: 59%;
+top: 39%;
+display: none;
+}
+#password-error2{
+color: red;
+position: absolute;
+left: 59%;
+top: 43%;
+display: none;
+}
+
+#genderError{
+color: red;
+position: absolute;
+left: 27%;
+top: 33%;
+display: none;
+}
+#ageError{
+  color: red;
+  position: absolute;
+  left: 26%;
+top: 26%;
+display: none;
+}
 }

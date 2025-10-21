@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
   import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 
-  // 🔥 Firebase configuration
+  //  Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyAUp__DiYzcr3KpbhpZxeqEPV9MEgWioGk",
     authDomain: "create-account-fb2.firebaseapp.com",
@@ -15,10 +15,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebas
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-  // ✅ Get the input element
+  //  Get the input element
   const searchInput = document.getElementById("search-button");
 
-  // 🔍 Listen for Enter key
+  //  Listen for Enter key
   searchInput.addEventListener("keypress", async (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
@@ -26,7 +26,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebas
     }
   });
 
-  // ✅ Function to search Firestore by firstName or surName
+  //  Function to search Firestore by firstName or surName
   async function searchFriends() {
     const name = searchInput.value;
     if (!name) {

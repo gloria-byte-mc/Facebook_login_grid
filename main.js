@@ -87,7 +87,7 @@ Submit.addEventListener('click', async (event) => {
   const email = emailInput.value.trim();
   const password = passwordInput.value.trim();
 
-  // 🔍 Step 1: Client-side validation
+  //  Step 1: Client-side validation
   let hasError = false;
 
   if (email.length === 0) {

@@ -90,7 +90,7 @@ imageCreate.addEventListener('change', () => {
 
      // postImage.style.display = 'block';
 
- // ✅ Show the div with class "user-post"
+ // Show the div with class "user-post"
       const userPostDiv = document.querySelector('.user-post');
       if (userPostDiv) {
         userPostDiv.style.display = 'block';
@@ -98,17 +98,17 @@ imageCreate.addEventListener('change', () => {
 
 
 
-      // ✅ Get the current user's username or ID
-      const currentUser = localStorage.getItem('currentUser'); // e.g. set when user logs in
+      //  Get the current user's username or ID
+      const currentUser = localStorage.getItem('currentUser');
 
-      // ✅ If a user is logged in, save their story under their unique key
+      //  If a user is logged in, save their story under their unique key
       if (currentUser) {
         localStorage.setItem(`storyImage_${currentUser}`, base64Image);
       } else {
         console.warn("No currentUser found in localStorage. Please set it during login.");
       }
 
-      // ✅ Redirect to dashboard
+      
     
     };
     reader.readAsDataURL(file);

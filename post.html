@@ -7,15 +7,43 @@
   <link rel="icon" href="https://www.facebook.com/favicon.ico" type="image/x-icon">
   <script src="https://kit.fontawesome.com/cc4feaa5b5.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="post.css">
+  <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
+
+   <nav class="facebook-nav">
+  <a href="index.html"> <img src="images/Favicon5.png" alt=""></a>
+  
+
+   
+
+
+   <div class="facebook-icons">
+
+   
+    <span class="account" id="account" style="margin-left: 7rem;"></span>
+
+    <div class="dropdown">
+      <a href="#">Profile</a>
+      <a href="#" id="settings-link">Settings</a>
+      <a href="index.html">Logout</a>
+    </div>
+
+  <div class="settings-panel" id="settings-panel" style="display: none;">
+  <button class="dark">Dark Mode</button>
+  <button class="light">Light Mode</button>
+</div>
+   </div>
+ 
+  </nav>
+
 
 
   <div class="post-container">
     <div class="post1">
 
-      <form action="" id="form1">
-        <input type="file" id="imageCreate" accept="image/*" style="display: none;">
+      <form action="" id="form1" class="form1">
+        <input type="file" id="imageCreate"accept="image/*" style="display: none;">
 
         <span>
           <i class="fa-solid fa-image"></i>
@@ -24,14 +52,15 @@
       </form>
 
       <form action="
-      " id="form2">
+
+      " id="form2" class="form2">
 
       <span>
         <i class="fa-solid fa-font"></i>
         <p>Create a Text Story</p>
       </span>
 
-       <input type="text" id="text1">
+       
      
 
     
@@ -39,8 +68,9 @@
 
     <img src="images/outdoor-cooking.jpg" alt="" id="post-image" style="display: none;"><p id="p2" style="display: none;">Bringing people together, one flame and flavor at a time.</p>
 
-    
-  
+    <div class="story-container2" style="display: none;"></div>
+   <div class="hero3" style="display: none;">
+   </div>
 
     </div>
   </div>
@@ -78,7 +108,8 @@
 });
 */
 
-
+const storyContainer = document.querySelector('.story-container2');
+const heroContainer = document.querySelector('.hero3');
 
 imageCreate.addEventListener('change', () => {
   const file = imageCreate.files[0];
@@ -86,12 +117,20 @@ imageCreate.addEventListener('change', () => {
     const reader = new FileReader();
     reader.onload = function(e) {
       const base64Image = e.target.result; // image in Base64 format
-      postImage.src = base64Image;
+     //postImage.src = base64Image;
+ 
+     storyContainer.style.backgroundImage = `url(${base64Image})`;
+     storyContainer.style.backgroundSize = "cover";
+     storyContainer.style.backgroundPosition = "center";
+
+     heroContainer.style.backgroundImage = `url(${base64Image})`;
+     heroContainer.style.backgroundsize = "cover";
+     heroContainer.style.backgroundSize = "center";
 
      // postImage.style.display = 'block';
 
  // Show the div with class "user-post"
-      const userPostDiv = document.querySelector('.user-post');
+      const userPostDiv = document.querySelector('.story-container');
       if (userPostDiv) {
         userPostDiv.style.display = 'block';
       }
@@ -108,7 +147,7 @@ imageCreate.addEventListener('change', () => {
         console.warn("No currentUser found in localStorage. Please set it during login.");
       }
 
-      
+      window.location.href = "post2.html";
     
     };
     reader.readAsDataURL(file);
@@ -120,7 +159,7 @@ imageCreate.addEventListener('change', () => {
 
 
 
-
+/*
 
 const postText = document.getElementById('text1');
 
@@ -160,6 +199,164 @@ window.addEventListener('load', () => {
 
  
 });
+
+*/
+
+const Form2 = document.getElementById('form2');
+
+Form2.addEventListener('click', (event) => {
+  event.preventDefault(); 
+  window.location.href = "post3.html";
+});
+
+
+const Accounting = document.getElementById('account');
+const Dropdown = document.querySelector('.dropdown');
+
+Accounting.addEventListener('click', (event) => {
+  event.preventDefault();
+
+
+  const currentDisplay = window.getComputedStyle(Dropdown).display;
+
+  if (currentDisplay === 'flex') {
+    Dropdown.style.display = 'none';
+  } else {
+    Dropdown.style.display = 'flex';
+  }
+
+ 
+});
+document.addEventListener('click', (event) => {
+  if (!Accounting.contains(event.target) && !Dropdown.contains(event.target)) {
+    Dropdown.style.display = 'none';
+  }
+});
+
+
+
+
+
+const settingsLink = document.getElementById('settings-link');
+const settingsPanel = document.getElementById('settings-panel');
+const dropdown = document.querySelector('.dropdown'); // select the dropdown div
+
+settingsLink.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  // Hide the dropdown
+  if (dropdown) {
+    dropdown.style.display = 'none';
+  }
+
+  // Toggle visibility of settings panel
+  if (settingsPanel) {
+    settingsPanel.style.display =
+      settingsPanel.style.display === 'block' ? 'none' : 'block';
+  }
+
+  // Stop click from bubbling up to the document
+  e.stopPropagation();
+});
+
+// Hide settings panel when clicking outside
+document.addEventListener('click', (e) => {
+  if (
+    settingsPanel &&
+    settingsPanel.style.display === 'block' &&
+    !settingsPanel.contains(e.target) &&
+    e.target !== settingsLink
+  ) {
+    settingsPanel.style.display = 'none';
+  }
+});
+
+
+
+/*
+const Dark = document.querySelector('.dark');
+
+
+Dark.addEventListener('click', ()=>{
+
+  const Nav = document.querySelector('.facebook-nav');
+  const postContainer = document.querySelector('.post-container');
+  const Form1 = document.querySelector('.form1');
+  const Form2 = document.querySelector('.form2');
+   const Account = document.querySelector('.account');
+
+
+  Nav.classList.add('dark-mode');
+  postContainer.classList.add('dark-mode');
+  Form1.classList.add('dark-mode');
+  Form2.classList.add('dark-mode');
+   Account.classList.add('dark-mode');
+});
+
+const Light = document.querySelector('.light');
+
+Light.addEventListener('click', () => {
+  const Nav = document.querySelector('.facebook-nav');
+   const postContainer = document.querySelector('.post-container');
+   const Form1 = document.querySelector('.form1');
+   const Form2 = document.querySelector('.form2');
+    const Account = document.querySelector('.account');
+   
+
+  Nav.classList.remove('dark-mode');
+  postContainer.classList.remove('dark-mode');
+   Form1.classList.remove('dark-mode');
+   Form2.classList.remove('dark-mode');
+    Account.classList.remove('dark-mode');
+});
+
+
+*/
+
+window.addEventListener('DOMContentLoaded', () => {
+  const isDarkMode = localStorage.getItem('darkMode') === 'true';
+  
+  if (isDarkMode) {
+    // Add dark-mode class to all relevant elements
+    const elements = [
+      document.querySelector('.facebook-nav'),
+      document.querySelector('.post-container'),
+      document.querySelector('.hero1'),
+      document.querySelector('.form1'),
+      document.querySelector('.form2'),
+      document.querySelector('.account'),
+      document.querySelector('.your-storySpan'),
+      document.querySelector('.your-storySpan2'),
+      document.querySelector('.overlay'),
+      document.querySelector('.overlay2'),
+      // Add any other elements specific to post2.html
+    ];
+
+    elements.forEach(el => {
+      if (el) el.classList.add('dark-mode');
+    });
+  }
+});
+
+
+const account3 = document.getElementById('account');
+account3.addEventListener('click', ()=>{
+  const Dropdown2 = document.querySelector('.dropdown');
+ 
+
+  Dropdown2.style.display = "none"
+ 
+
+});
+
+const Dropdown2 = document.querySelector('.dropdown');
+
+Dropdown2.addEventListener('click', ()=>{
+   const settingPanel = document.querySelector('.settings-panel');
+
+ settingPanel.style.display = "none"
+})
+
 
 
 </script>

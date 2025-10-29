@@ -5,6 +5,7 @@
   width:100%;
   grid-template-columns: auto auto;
   column-gap:20px !important;
+  font-family: Arial, Helvetica, sans-serif;
 }
 #head{
   display: none;

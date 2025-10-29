@@ -20,29 +20,121 @@
 
    <div class="facebook-pages">
   <button><i class="fa-solid fa-house" id="home"></i></button>
-  <button><i class="fa-solid fa-users"></i></button>
-  <button><i class="fa-solid fa-user-group"></i></button>
+  <button class="user-icon"><i class="fa-solid fa-users" ></i></button>
+  <button class="user-icon2"><i class="fa-solid fa-user-group"></i></button>
    </div>
 
 
    <div class="facebook-icons">
 
-    <button>Find friends</button>
+    <button class="find">Find friends</button>
     <span class="account" id="account"></span>
 
 
     <div class="dropdown">
       <a href="#">Profile</a>
-      <a href="#">Settings</a>
+      <a href="#" id="settings-link">Settings</a>
       <a href="index.html">Logout</a>
     </div>
 
+  <div class="settings-panel" id="settings-panel">
+  <button class="dark">Dark Mode</button>
+  <button class="light">Light Mode</button>
+</div>
    </div>
  
   </nav>
 
 
   <div class="facebook-container">
+
+    
+
+    <div class="overlay3">
+      <div class="overlay4">
+       <p>Posting...</p>
+    </div>
+    <div class="overlay-div">
+
+      <div class="overlay-div-heading">
+        <p>Create post</p>
+        <span class="create-post-span">
+          <i class="fa-solid fa-xmark" id="go-back"></i>
+        </span>
+
+      </div>
+
+      <hr>
+
+      <div  >
+        <input type="text" class="text3" placeholder="What's on your mind, Gloria?">
+       
+      </div >
+
+      <div class="image-container">
+
+      </div>
+
+      <div class="icons-container">
+        <div class="icons1">
+          <p>
+            Add to your post
+          </p>
+
+        </div>
+
+        <div class="icons2">
+          <img src="images/photo-video.png" alt="" id="photoIcon">
+          <img src="images/person-blue.png" alt="">
+          <img src="images/smile.png" alt="" class="emoji-container">
+  <div class="emoji-picker" style="display: none;">
+  <span class="emoji">😀</span>
+  <span class="emoji">😁</span>
+  <span class="emoji">😂</span>
+  <span class="emoji">🤣</span>
+  <span class="emoji">😊</span>
+  <span class="emoji">😇</span>
+  <span class="emoji">🙂</span>
+  <span class="emoji">😉</span>
+  <span class="emoji">😍</span>
+  <span class="emoji">🥰</span>
+  <span class="emoji">😘</span>
+  <span class="emoji">😋</span>
+  <span class="emoji">😎</span>
+  <span class="emoji">🤩</span>
+  <span class="emoji">😌</span>
+
+  <span class="emoji">😢</span>
+  <span class="emoji">😭</span>
+  <span class="emoji">😡</span>
+  <span class="emoji">🤬</span>
+  <span class="emoji">😤</span>
+  <span class="emoji">😩</span>
+  <span class="emoji">😔</span>
+  <span class="emoji">😞</span>
+  <span class="emoji">😕</span>
+  <span class="emoji">😟</span>
+  <span class="emoji">🥺</span>
+  <span class="emoji">😅</span>
+  <span class="emoji">😆</span>
+
+
+</div>
+
+          <img src="images/location.png" alt="">
+          <img src="images/gif.png" alt="">
+
+        </div> 
+        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+
+
+      </div>
+
+      <button class="post-button">Post</button>
+
+      </div>
+
+    </div>
 
     <div class="facebook-container-grids">
     <div class="facebook-services">
@@ -52,13 +144,13 @@
 <span class="user-name" id="usernaming"></span>
 </div>
 
-<button><span><i class="fa-solid fa-circle-notch" style="color: purple;"></i></span>Meta AI</button>
-<button><span><i class="fa-solid fa-user-group" style="color: red;"></i></span>Friends</button>
-<button><span><img src="images/Favicon5.png" alt=""  style="height: 100%; max-height: 30px;"></span>Welcome</button>
-<button><span><i class="fa-solid fa-clock" style="color: orange;"></i></span>Memories</button>
-<button><span><i class="fa-solid fa-bookmark" style="color: greenyellow;"></i></span>Saved</button>
-<button><span><i class="fa-solid fa-users" style="color: violet;"></i></span>Groups</button>
-<button><span><i class="fa-solid fa-video" style="color: olivedrab;"></i></span>Video</button>
+<button class="icon-buttons"><span><i class="fa-solid fa-circle-notch" style="color: purple;"></i></span>Meta AI</button>
+<button class="icon-buttons"><span><i class="fa-solid fa-user-group" style="color: red;"></i></span>Friends</button>
+<button class="icon-buttons"><span><img src="images/Favicon5.png" alt=""  style="height: 100%; max-height: 30px;"></span>Welcome</button>
+<button class="icon-buttons"><span><i class="fa-solid fa-clock" style="color: orange;"></i></span>Memories</button>
+<button class="icon-buttons"><span><i class="fa-solid fa-bookmark" style="color: greenyellow;"></i></span>Saved</button>
+<button class="icon-buttons"><span><i class="fa-solid fa-users" style="color: violet;"></i></span>Groups</button>
+<button class="icon-buttons"><span><i class="fa-solid fa-video" style="color: olivedrab;"></i></span>Video</button>
 
     </div>
 
@@ -68,7 +160,7 @@
        <div class="upload-text">
          <p style="font-size: 1.5rem; font-weight: 600;">Upload a profile picture</p>
          <p style="font-size: 1.3rem;">Add a photo so that friends can easily identify you</p>
-          <input type="file" id="imageInput" accept="image/*" style="display: none;">
+          <input type="file" id="imageInput2" accept="image/*" style="display: none;">
           <button id="uploadBtn">Add Picture</button>
        </div>
 
@@ -76,6 +168,77 @@
         <span class="image-preview" id="imagePreview"></span>
        </div>
       </div>
+
+      <div class="create-story">
+
+        <div class="story1">
+          <span class="story1-span" id="story1-span"></span>
+          <button id="on-your-mind">What's on your mind, <p class="one-name"></p></button>
+        </div>
+        
+        <hr>
+
+        <div class="story2">
+         <button> <img src="images/video.png" alt=""> Live video</button>
+         <button class="image-picker"> <img src="images/photo-video.png" alt="">Photo/video</button>
+         <button class="feeling-container"> <img src="images/smile.png" alt="">Feeling/activity</button>
+          <div class="emoji-picker2" style="display: none;">
+  <span class="emoji">😀</span>
+  <span class="emoji">😁</span>
+  <span class="emoji">😂</span>
+  <span class="emoji">🤣</span>
+  <span class="emoji">😊</span>
+  <span class="emoji">😇</span>
+  <span class="emoji">🙂</span>
+  <span class="emoji">😉</span>
+  <span class="emoji">😍</span>
+  <span class="emoji">🥰</span>
+  <span class="emoji">😘</span>
+  <span class="emoji">😋</span>
+  <span class="emoji">😎</span>
+  <span class="emoji">🤩</span>
+  <span class="emoji">😌</span>
+
+  <span class="emoji">😢</span>
+  <span class="emoji">😭</span>
+  <span class="emoji">😡</span>
+  <span class="emoji">🤬</span>
+  <span class="emoji">😤</span>
+  <span class="emoji">😩</span>
+  <span class="emoji">😔</span>
+  <span class="emoji">😞</span>
+  <span class="emoji">😕</span>
+  <span class="emoji">😟</span>
+  <span class="emoji">🥺</span>
+  <span class="emoji">😅</span>
+  <span class="emoji">😆</span>
+
+
+</div>
+
+
+         <input type="file" id="storyImageInput" accept="image/*" style="display: none;">
+
+        </div>
+
+      </div>
+
+      <div class="story-container">
+
+        
+       <div class="story-container2">
+         <span class="story-span" id="story-span"></span>
+         <p class="description" id="story-span2"></p>
+
+         <p class="your-story">Your story</p>
+        </div>
+
+       
+
+      </div>
+
+      
+
 
       <div class="search-friends">
         <p style="font-size: 1.5rem; font-weight: 600;">Find people you know</p>
@@ -116,12 +279,17 @@
 
  <div style="display: flex; flex-direction: column;">
   <a href="#" id="link1"> <span style="color: #0866ff;">Follow</span></a>
-  <p id="p1">Recommended post . 15h .</p>
+  <p id="p1">Just now</p>
  </div>
 
  <div class="x-mark">
-  <i class="fa-solid fa-ellipsis"></i>
+  <i class="fa-solid fa-ellipsis" id="edit-button"></i>
   <i class="fa-solid fa-xmark" id="x-delete"></i>
+
+  <div class="edit-menu" id="edit-menu" style="display: none;">
+    <a href="#" id="edit-post-link">Edit Post</a>
+    <a href="#" id="move-to-bin">Move to bin </a>
+  </div>
  </div>
 
  </div>
@@ -138,12 +306,12 @@
   <div class="post4-a">
      <div class="post4-a-img">
       <img src="images/thumps-up.svg" alt="">
-      <img src="images/like-button.svg" alt="">
+      <img src="" alt="" class="main-reaction-img" style="display: none;">
      </div>
 
      <div style="display: flex; flex-direction: row; gap: 0.5rem;">
-      <a href="#">1.5K comments</a>
-      <a href="#">77 shares</a>
+      <a href="#">0 comments</a>
+      <!--<a href="#">77 shares</a> -->
      </div>
 
 
@@ -152,9 +320,20 @@
   <hr>
 
   <div class="post4-b">
-  <button> <span><i class="fa-regular fa-thumbs-up"></i></span>Like</button>
+  <button class="like-button2"> <span><i class="fa-regular fa-thumbs-up"></i></span>Like</button>
+
+  <div class="emoji-container2">
+  <img src="images/emoji2.jpg" alt="like" class="emoji">
+  <img src="images/emoji3.jpg" alt="love" class="emoji">
+  <img src="images/emoji4.jpg" alt="haha" class="emoji">
+  <img src="images/emoji5.jpg" alt="wow" class="emoji">
+  <img src="images/emoji6.jpg" alt="sad" class="emoji">
+</div>
+
   <button><span><i class="fa-regular fa-comment"></i></span>Comment</button>
+  <!--
   <button><span><i class="fa-solid fa-share"></i></span>Share</button>
+  -->
   </div>
   
  </div>
@@ -218,11 +397,13 @@
       if (userSnap.exists()) {
         const data = userSnap.data();
         const fullName = `${data.firstName} ${data.surName}`;
+        const oneName = `${data.firstName}`;
         document.querySelector(".user-name").textContent = fullName;
         document.querySelector("#link1").textContent = fullName;
         document.querySelector(".user-profile").innerHTML = `
-      
+        
 `;
+       document.querySelector(".one-name").textContent = oneName + "?";
 
         
       } else {
@@ -242,7 +423,8 @@
   const Account = document.getElementById('account');
   const postProfile = document.getElementById('post-profile');
   const uploadProfileSection = document.querySelector('.upload-profile');
-
+ const postProfile2 = document.querySelector('.story-span');
+ const postProfile3 = document.querySelector('.story1-span');
 
   uploadBtn.addEventListener('click',()=>{
     imageInput.click();
@@ -278,6 +460,15 @@ imageInput.addEventListener('change', async () => {
       postProfile.style.backgroundSize = "cover";
       postProfile.style.backgroundPosition = "center";
 
+      postProfile2.style.backgroundImage = `url(${base64Image})`;
+      postProfile2.style.backgroundSize = "cover";
+      postProfile2.style.backgroundPosition = "center";
+
+      postProfile3.style.backgroundImage = `url(${base64Image})`;
+      postProfile3.style.backgroundSize = "cover";
+      postProfile3.style.backgroundPosition = "center";
+
+
       // ✅ Hide upload section after upload
       uploadProfileSection.style.display = "none";
 
@@ -289,7 +480,7 @@ imageInput.addEventListener('change', async () => {
         console.warn("No current user found in localStorage!");
       }
 
-     // alert("Profile picture saved successfully!");
+     alert("Profile picture saved successfully!");
     };
 
     reader.readAsDataURL(file);
@@ -323,8 +514,16 @@ window.addEventListener('DOMContentLoaded', () => {
   if (currentUser) {
     const savedImage = localStorage.getItem(`storyImage_${currentUser}`);
     if (savedImage) {
+      /*
       document.getElementById('post-image').src = savedImage;
-      document.querySelector('.user-post').style.display = 'block';
+      */
+      
+    const storyContainer2 = document.querySelector('.story-container2');
+    storyContainer2.style.backgroundImage = `url(${savedImage})`;
+    storyContainer2.style.backgroundSize = "cover";
+    storyContainer2.style.backgroundPosition = "center";
+    
+      document.querySelector('.story-container').style.display = 'block';
     }
   }
 });
@@ -338,9 +537,11 @@ window.addEventListener("DOMContentLoaded", () => {
       const userProfile = document.getElementById("user-profile");
       const account = document.getElementById("account");
       const postProfile = document.getElementById("post-profile");
+      const postProfile2 = document.getElementById("story-span");
+      const postProfile3 = document.getElementById("story1-span");
 
       // Set image + consistent styling
-      [userProfile, account, postProfile].forEach(el => {
+      [userProfile, account, postProfile, postProfile2, postProfile3].forEach(el => {
         el.style.backgroundImage = `url(${savedImage})`;
         el.style.backgroundSize = "cover";
         el.style.backgroundPosition = "center";
@@ -366,6 +567,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
+/*
 window.addEventListener('DOMContentLoaded', () => {
   const currentUser = localStorage.getItem('currentUser');
   if (currentUser) {
@@ -379,6 +581,66 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+*/
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const currentUser = localStorage.getItem('currentUser');
+
+  if (currentUser) {
+    const savedStory = localStorage.getItem(`storyText_${currentUser}`);
+
+    if (savedStory) {
+      const storySpan = document.getElementById('story-span2');
+
+      if (storySpan) {
+        storySpan.textContent = savedStory;
+       
+      }
+    }
+  } else {
+    console.warn("No current user logged in!");
+  }
+});
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const currentUser = localStorage.getItem('currentUser');
+  if (!currentUser) return;
+
+  const storyText = localStorage.getItem(`storyText_${currentUser}`);
+  const storyBg = localStorage.getItem(`storyBg_${currentUser}`);
+  const storyImage = localStorage.getItem(`storyImage_${currentUser}`);
+
+  const storyContainer2 = document.querySelector('.story-container2');
+  const storySpan = document.getElementById('story-span2');
+
+  if (storyImage) {
+    // 🖼️ If user uploaded an image, show image story
+    storyContainer2.style.backgroundImage = `url(${storyImage})`;
+    storyContainer2.style.backgroundSize = "cover";
+    storyContainer2.style.backgroundPosition = "center";
+  } 
+  else if (storyText) {
+    // 📝 If it's a text story, show text and background color
+    storyContainer2.style.backgroundImage = "none";
+    storyContainer2.style.backgroundColor = storyBg || "#ffffff";
+    storySpan.textContent = storyText;
+    storySpan.style.color = "white";
+    storySpan.style.fontSize = "1.4rem";
+    storySpan.style.fontWeight = "600";
+    storySpan.style.textAlign = "center";
+    storySpan.style.padding = "20px";
+  }
+
+  if (storyText || storyImage) {
+    document.querySelector('.story-container').style.display = 'block';
+  }
+});
+
+
 
 
 
@@ -451,6 +713,72 @@ document.addEventListener('click', (event) => {
     Dropdown.style.display = 'none';
   }
 });
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const discardFlag = localStorage.getItem('discardStory');
+
+  if (discardFlag === 'true') {
+    const userPostDiv = document.querySelector('.story-container');
+    if (userPostDiv) {
+      userPostDiv.style.display = 'none';
+    }
+
+    // Remove story data
+    const currentUser = localStorage.getItem("currentUser");
+    if (currentUser) {
+      localStorage.removeItem(`storyText_${currentUser}`);
+      localStorage.removeItem(`storyImage_${currentUser}`);
+    }
+
+    // Clear flag
+    localStorage.removeItem('discardStory');
+  }
+});
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const currentUser = localStorage.getItem('currentUser');
+  if (!currentUser) return;
+
+  // Retrieve image and text
+  const postImage = localStorage.getItem(`postImage_${currentUser}`);
+  const postText = localStorage.getItem(`postText_${currentUser}`);
+
+  // Target the elements
+  const postImageDiv = document.getElementById('post-image');
+  const postTextDiv = document.getElementById('p2');
+  const userPostDiv2 = document.querySelector('.user-post');
+
+   let hasPost = false;
+
+  if (postImage) {
+    // Show the image in .post3
+    postImageDiv.src = postImage; // if it's an <img>
+    postImageDiv.style.display = "block";
+    hasPost = true;
+  }
+/*
+  if (postText) {
+    postTextDiv.textContent = postText;
+    hasPost = true;
+  }
+*/
+
+ if (postText && postText.trim() !== "") {
+    postTextDiv.textContent = postText;
+    hasPost = true;
+  }
+
+    if (hasPost) {
+    userPostDiv2.style.display = "block";
+  } else {
+    userPostDiv2.style.display = "none"; // optional safeguard
+  }
+});
+
 
 
 </script>

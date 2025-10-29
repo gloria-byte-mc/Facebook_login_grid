@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create stories | Facebbok</title>
+   <link rel="icon" href="https://www.facebook.com/favicon.ico" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/cc4feaa5b5.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="post3.css">
+</head>
+<body>
+
+
+
+  <section class="sidebar2">
+     <div class="overlay2-a">
+    
+  </div>
+
+
+    <div class="logo">
+      <a href="index.html"> <img src="images/Favicon5.png" alt=""></a>
+    </div>
+
+    <hr>
+
+    <div class="your-story-side2" >
+      <h2>Your Story</h2>
+
+      <div class="your-story1-a">
+       <span id="your-story-span1-a"></span>
+       <span id="your-story-span2-a" class="your-story-span2-a-b"></span>
+      </div>
+
+      <hr class="your-story1-hr2">
+
+    </div>
+
+
+    <div class="your-story-buttons2">
+
+      <div class="color-buttons">
+        <p>Backgrounds</p>
+
+        <div class="color-spans">
+
+        </div>
+
+      </div>
+     
+
+    </div>
+
+
+    <div class="save-story2">
+  <button class="discard-a">Discard</button>
+  <button class="share-to-story2">Share to story</button>
+
+    </div>
+
+  </section>
+
+
+ 
+
+  <div class="hero-section-main2">
+
+    <div class="overlay2-a">
+    <div class="discard-container">
+      <div class="discard1-a">
+       <p>Discard Story?</p>
+       <span class="discard-span2"><i class="fa-solid fa-xmark"></i></span>
+      </div>
+
+      <hr>
+
+      <p class="sure2">Are you sure you want to discard this story?Your story wont be saved</p>
+
+      <div class="discard2-a">
+        <button style="background-color: #0866FF; color: white;" class="discard-button">Discard</button>
+        <button style="background-color: transparent; color: #0866FF; " class="continue-editing">Continue editing</button>
+      </div>
+
+    </div>
+    </div>
+
+  <div class="hero-section2">
+
+    <div class="hero1-a">
+     <p>Preview</p>
+
+     <div class="hero2-a">
+
+      <div class="overlay-a">
+    <p>Posting...</p>
+  </div>
+
+      <div class="hero3-a" >
+       <input type="text" id="text2" placeholder="start typing">
+      </div>
+
+     </div>
+    </div>
+
+
+   
+
+  </div>
+
+  <span id="story-span" style="display: none;"></span>
+  </div>
+
+  <script type="module">
+
+     const colorContainer = document.querySelector('.color-spans');
+
+ 
+  const colors = ['#ff4d4d', '#4d79ff', '#4dff88', '#ffcc00', '#ff66cc', '#a64dff', '#4dd2ff'];
+
+ 
+  colors.forEach(color => {
+    const span = document.createElement('span');
+    span.classList.add('color-circle');
+    span.style.backgroundColor = color;
+
+   
+    span.addEventListener('click', () => {
+       const Hero3a = document.querySelector('.hero3-a');
+       Hero3a.style.backgroundColor = color;
+      
+    });
+
+    colorContainer.appendChild(span);
+  });
+
+
+
+
+/*
+  const ShareToStory = document.querySelector('.share-to-story2');
+const currentUser = localStorage.getItem("currentUser");
+
+ShareToStory.addEventListener('click', () => {
+  const Overlay = document.querySelector('.overlay-a');
+  const Input = document.getElementById('text2');
+
+  if (Input) {
+    const storyText = Input.value.trim();
+
+    // Save to localStorage for the logged-in user
+    if (currentUser) {
+      localStorage.setItem(`storyText_${currentUser}`, storyText);
+    } else {
+      console.warn("No current user logged in!");
+      return; // Stop here if no user
+    }
+
+   
+    Input.value = '';
+    
+    Overlay.style.display = "flex";
+    setTimeout(()=>{
+   
+    
+    window.location.href = "dashboard.html";
+    },2000);
+
+   
+  } else {
+    console.warn("Input field #text2 not found!");
+  }
+});
+*/
+
+
+const ShareToStory = document.querySelector('.share-to-story2');
+const currentUser = localStorage.getItem("currentUser");
+
+ShareToStory.addEventListener('click', () => {
+  const Overlay = document.querySelector('.overlay-a');
+  const Input = document.getElementById('text2');
+  const Hero3a = document.querySelector('.hero3-a');
+
+  if (!Input || !Hero3a) return;
+
+  const storyText = Input.value.trim();
+  const bgColor = Hero3a.style.backgroundColor || "#ffffff"; // default white
+
+  if (currentUser) {
+    // 🧠 Save both the text and color together
+    localStorage.setItem(`storyText_${currentUser}`, storyText);
+    localStorage.setItem(`storyBg_${currentUser}`, bgColor);
+
+    // ✅ Remove any image from storage if this is a text story
+    localStorage.removeItem(`storyImage_${currentUser}`);
+  } else {
+    console.warn("No current user logged in!");
+    return;
+  }
+
+  Input.value = '';
+  Overlay.style.display = "flex";
+
+  setTimeout(() => {
+    window.location.href = "dashboard.html";
+  }, 2000);
+});
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const isDarkMode = localStorage.getItem('darkMode') === 'true';
+  
+  if (isDarkMode) {
+    // Add dark-mode class to all relevant elements
+    const elements = [
+      document.querySelector('.sidebar2'),
+      document.querySelector('.discard-a'),
+      document.querySelector('.hero1'),
+      document.querySelector('.your-story-side2'),
+      document.querySelector('.your-story-buttons2'),
+      document.querySelector('.discard'),
+      document.querySelector('.hero-section-main2'),
+      document.querySelector('.hero1-a'),
+      document.querySelector('.overlay-a'),
+      document.querySelector('.overlay2-a'),
+      document.querySelector('.your-story-span2-a-b')
+      // Add any other elements specific to post2.html
+    ];
+
+    elements.forEach(el => {
+      if (el) el.classList.add('dark-mode');
+    });
+  }
+});
+
+
+
+
+ </script>
+
+</body>
+</html>

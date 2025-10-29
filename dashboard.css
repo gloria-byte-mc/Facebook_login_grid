@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .facebook-nav{
   background-color: white;
@@ -13,6 +14,12 @@
   flex-direction: row;
   align-items: center;
   position: relative;
+  
+}
+.facebook-nav.dark-mode {
+  background-color: #242526;
+  border-top: 1px solid #242526;
+  border-bottom: 1px solid #3b3d3e;
 }
 .facebook-nav img{
   height: 100%;
@@ -37,6 +44,10 @@
   flex-direction: row;
   gap: 0.5rem;
  
+}
+.search.dark-mode{
+  background-color: #3a3b3c;
+  color: #abacac;
 }
 .facebook-pages{
   display: flex;
@@ -101,17 +112,72 @@
   color: #1c1c21;
 }
 
+.user-icon.dark-mode{
+  color:#abacac;
+}
+.user-icon2.dark-mode{
+  color:#abacac;
+}
 .account{
 width: 40px;
 height: 40px;
 background-color: #e5e6e8;
 border-radius: 50px;
 }
+.account.dark-mode{
+  background-color: #3a3b3c;
+}
 
 .facebook-container{
   background-color: #f0f2f5;
-  height: 100vh;
+  height: 150vh;
   padding-bottom: 2rem;
+  }
+  .facebook-container.dark-mode{
+    background-color: #1c1c1d;
+  }
+  .facebook-container.dark-mode .overlay3{
+background: rgba(34, 34, 34, 0.6);
+  }
+  
+   .facebook-container.dark-mode .overlay3 .overlay-div{
+  background-color: #252728;
+   }
+    .facebook-container.dark-mode .overlay3 .overlay-div .overlay-div-heading p{
+   color: #E2E5E9;
+    }
+     .facebook-container.dark-mode .overlay3 .overlay-div .overlay-div-heading span{
+      background-color: #333334;
+      color: #abacac;
+     }
+      .facebook-container.dark-mode .overlay3 .overlay-div hr{
+        background-color: #46484B;
+      }
+     .facebook-container.dark-mode .overlay3 .overlay-div .text3{
+      background-color: transparent;
+      color: #E2E5E9;
+     }  
+     .facebook-container.dark-mode .overlay3 .overlay-div input::placeholder{
+      color: #abacac;
+     }
+     .facebook-container.dark-mode .icons-container{
+      border-color: #abacac;
+     }
+     .facebook-container.dark-mode .icons-container .icons1 p{
+      color: #E2E5E9;
+     }
+     .facebook-container.dark-mode .post-button{
+       background-color: #333334;
+       color: #E2E5E9;
+     }
+.facebook-container.dark-mode .emoji-picker{
+  background-color: #252728;
+  border: none;
+}
+  
+  .find.dark-mode{
+    background-color: #3a3b3c;
+    color: #abacac;
   }
 
 .facebook-container-grids{
@@ -141,6 +207,18 @@ border-radius: 50px;
   width: 100%;
   align-items: flex-end;
 }
+.group-chats.dark-mode h3{
+  color: #abacac;
+}
+.group-chats.dark-mode button:hover{
+  background-color: #3a3b3c;
+}
+.group-chats.dark-mode button{
+  color: #E2E5E9;
+}
+.group-chats.dark-mode button span{
+  background-color: #3a3b3c;
+}
 
 .service1{
   display: flex;
@@ -160,12 +238,18 @@ border-radius: 50px;
 .service1:hover{
   background-color: #e5e6e8;
 }
+.service1.dark-mode:hover{
+  background-color: #3a3b3c;
+}
 .service1 .user-profile{
   width: 40px;
 height: 40px;
 background-color: #e5e6e8;
 border-radius: 50px;
 
+}
+.user-profile.dark-mode{
+  background-color: #3a3b3c;
 }
 .facebook-container-grids .facebook-services button{
   width: 100%;
@@ -186,6 +270,12 @@ border-radius: 50px;
 .facebook-container-grids .facebook-services button:hover{
   background-color: #e5e6e8;
 }
+.facebook-services.dark-mode button{
+  color: #E2E5E9;
+}
+.facebook-services.dark-mode button:hover{
+  background-color: #3a3b3c;
+}
 
 .facebook-container-grids .facebook-services button span{
    width: 40px;
@@ -195,6 +285,9 @@ border-radius: 50px;
 display: flex;
 justify-content: center;
 align-items: center;
+}
+.facebook-services.dark-mode button span{
+  background-color: #3a3b3c;
 }
 
 .group-chats h3{
@@ -237,6 +330,9 @@ align-items: center;
   align-items: center;
   justify-content: center;
 }
+.user-name.dark-mode{
+  color:  #E2E5E9;
+}
 .user-profile i{
   font-size: 1.5rem;
 }
@@ -258,6 +354,59 @@ align-items: center;
 }
 .user-post{
   display: none;
+}
+
+.user-post.dark-mode .post1{
+  background-color: #242526;
+
+}
+.user-post.dark-mode .post2{
+  background-color: #242526;
+  color: #abacac;
+}
+.user-post.dark-mode .post1 .post-span{
+background-color: #3a3b3c;
+border-color:#3b3d3e ;
+
+}
+.user-post.dark-mode .post1 #link1 {
+color: #E2E5E9;
+}
+.user-post.dark-mode .post1 #p1{
+  color: #abacac;
+}
+.user-post.dark-mode .post1 .x-mark i{
+  color: #abacac;
+}
+.user-post.dark-mode .post1 .x-mark .edit-menu{
+background-color: #242526;
+border: none;
+
+}
+.user-post.dark-mode .post1 .x-mark .edit-menu a{
+color: #E2E5E9;
+}
+.user-post.dark-mode .post1 .x-mark .edit-menu a:hover{
+  background-color: #3a3b3c;
+}
+
+.user-post.dark-mode .post3{
+  background-color: #3a3b3c;
+}
+.user-post.dark-mode .post4{
+background-color: #242526;
+}
+.user-post.dark-mode .post4 hr{
+  background-color: #3b3d3e;
+}
+.user-post.dark-mode .post4 .post4-a a{
+  color: #abacac;
+}
+.user-post.dark-mode .post4 .post4-b button{
+  color: #abacac;
+}
+.user-post.dark-mode .post4 .post4-b button:hover{
+background-color: #3a3b3c;
 }
 .facebook-posts .post1{
   display: flex;
@@ -337,12 +486,17 @@ background-color:rgb(67, 47, 12);
  padding-top: 0.5rem;
  padding-right: 0.5rem;
  padding-bottom: 0.5rem;
-
+display: none;
 }
 .post4-a-img{
   display: flex;
   flex-direction: row;
   gap: 0.2rem;
+  
+}
+.post4-a-img img{
+  height: 20px;
+  width: 20px;
 }
 
 .post4-a a{
@@ -392,6 +546,20 @@ background-color:rgb(67, 47, 12);
   background-color: white;
    border-radius: 10px;
 }
+.upload-profile.dark-mode{
+  background-color: #242526;
+}
+.upload-profile.dark-mode .upload-text{
+  color:#E2E5E9;
+}
+.upload-profile.dark-mode span{
+  background-color: #3a3b3c;
+  border-color: #3b3d3e;
+}
+.upload-profile.dark-mode button{
+  background-color: #3a3b3c;
+  
+}
 .upload-text{
   display: flex;
   flex-direction: column;
@@ -438,6 +606,7 @@ background-color:rgb(67, 47, 12);
   padding-bottom: 2rem;
  background-color: white;
  border-radius: 10px;
+ display: none;
 }
 .search-friends input{
   margin-top: 1rem;
@@ -463,6 +632,27 @@ background-color:rgb(67, 47, 12);
    margin-top: 1rem;
    padding: 0.5rem;
 }
+.create-post.dark-mode{
+  background-color: #242526;
+}
+.create-post.dark-mode .create1:hover{
+  background-color: #3a3b3c;
+}
+.create-post.dark-mode .create2 .create2p-1 {
+color: #E2E5E9;
+}
+.create-post.dark-mode .create2 .create2p-2{
+  color: #abacac;
+}
+.create-post.dark-mode .create1 .create-span span{
+  color: #E2E5E9;
+  background-color: #3a3b3c;
+}
+.create-story.dark-mode .emoji-picker2{
+  background-color: #242526;
+  border: none;
+}
+
 .create1{
   display: flex;
   flex-direction: row;
@@ -534,4 +724,484 @@ font-weight: 600;
 }
 .dropdown a:hover{
    background-color: #f0f0f0;
+}
+
+.dropdown.dark-mode{
+  background-color: #242526;
+}
+.dropdown.dark-mode a{
+  color: #E2E5E9;
+}
+.dropdown.dark-mode a:hover{
+  background-color: #3a3b3c;
+}
+.create-story{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 15px;
+   padding-top: 0.8rem;
+  padding-left: 1.5rem;
+  padding-right: 1rem;
+  padding-bottom: 0.8rem;
+  margin-top: 0.8rem;
+}
+.create-story.dark-mode{
+  background-color: #242526;
+}
+       
+.create-story.dark-mode #on-your-mind{
+background-color: #3a3b3c;
+color:#abacac;
+}
+.create-story.dark-mode hr{
+background-color: #3b3d3e;
+}
+.create-story.dark-mode #story1-span{
+  background-color: #3a3b3c;
+  border-color: #abacac;
+}
+.create-story.dark-mode .story2 button:hover{
+  background-color: #3a3b3c;
+  
+}
+.create-story.dark-mode .story2 button{
+  color: #abacac;
+}
+
+.story1{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+ 
+  
+}
+.story1 span{
+  width: 45px;
+  height: 40px;
+  background-color: #f0f2f5;
+border-radius: 50px;
+border: 1px solid rgb(187, 185, 185);
+}
+.story1 button{
+  width: 100%;
+  border-radius: 50px;
+  background-color: #f0f2f5;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  color: #65686C;
+  font-size: 1.0625rem;
+}
+
+.story2{
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.8rem;
+  gap: 10px;
+}
+.story2 button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 15px 0;
+  border-radius: 10px;
+  border: none;
+  background-color: transparent;
+  color:#65686C ;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  gap: 10px;
+}
+.story2 button img{
+  width: 25px;
+  height: 25px;
+}
+.story2 button:hover{
+  background-color: #f0eeee;
+}
+.create-story hr{
+margin-top: 0.8rem;
+height: 1px;
+border: none;
+background-color:  #dadbdc;
+}
+
+.story-container{
+ 
+  margin-top: 0.8rem;
+  display: none;
+
+ 
+  
+}
+.story-container2{
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+  height: 300px;
+  background-color: yellow;
+  border-radius: 15px;
+}
+.story-container2.dark-mode #story-span{
+background-color: #3a3b3c;
+border-color:#3b3d3e;
+}
+.story-container2.dark-mode #story-span2{
+color: #abacac;
+}
+.story-container2.dark-mode .your-story{
+  color: #E2E5E9;
+}
+
+.text-container{
+   position: relative;
+  width: 100%;
+  max-width: 200px;
+  height: 300px;
+  background-color:green;
+  border-radius: 15px;
+}
+.text-container span{
+    position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #f0f2f5;
+  border-radius: 50%;
+  top: 5%;
+  left: 10%;
+  border: 1px solid rgb(187, 185, 185);
+}
+.story-container2 span{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #f0f2f5;
+  border-radius: 50%;
+  top: 5%;
+  left: 10%;
+  border: 1px solid rgb(187, 185, 185);
+}
+.description{
+  position: absolute;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  top: 30%;
+  left: 10%;
+}
+.description2{
+  position: absolute;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  top: 30%;
+  left: 10%;
+}
+ .your-story{
+  position: absolute;
+  left: 10%;
+  font-size: 1rem;
+  color: white;
+  font-weight: 600;
+  top: 90%;
+}
+
+.overlay3{
+    position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 155vh;
+  background: rgba(255, 255, 255, 0.7); /* white with 80% opacity */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  z-index: 2;
+  display: none;
+}
+.overlay4{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 155vh;
+  background: rgba(255, 255, 255, 0.7); /* white with 80% opacity */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 2rem;
+  font-weight: bold;
+  z-index: 2;
+  display: none;
+}
+.overlay4.dark-mode{
+  background: rgba(34, 34, 34, 0.6);
+  color: #E2E5E9;
+}
+.overlay4 p{
+  position: absolute;
+  top: 50vh;
+}
+.overlay-div{
+  position: relative;
+  background-color: white;
+  width: 100%;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.overlay-div-heading{
+display: flex;
+  flex-direction: row;
+ 
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+}
+.overlay-div-heading p{
+  color: black;
+  font-size: 1.5rem;
+  
+}
+.create-post-span{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+ justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f2f0f5;
+  color: black;
+  margin-left: auto;
+}
+.create-post-span i{
+  font-size: 1.5rem;
+}
+
+.overlay3 hr{
+  height: 1px;
+background-color: #dadbdc;
+border: none;
+margin-top: 0.5rem;
+}
+.text3{
+  width: 100%;
+  padding: 15px 0;
+  font-family: 1.5rem;
+  padding-left: 1rem;
+  margin-top: 1rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+.text3::placeholder{
+  font-size: 1.5rem
+}
+.image-container{
+  height: 400px;
+ margin-left: 1rem;
+ margin-right: 1rem;
+ border-radius: 10px;
+  
+}
+.icons-container{
+  display: flex;
+  flex-direction: row;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border: 1px solid #dadbdc;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 10px;
+  gap: 6rem;
+  margin-top: 1rem;
+}
+.icons1 p{
+  color: black;
+  font-size: 1rem;
+}
+.icons2{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.overlay-div button{
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  padding: 15px 0;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 0.9375rem;
+  font-weight: bold;
+  color: white;
+  background-color: #0866ff;
+  margin-bottom: 0.5rem;
+}
+.emoji-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  width: 220px;
+  position: absolute;
+  top: 55%;
+  left: 80%;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  z-index: 200;
+   max-height: 150px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.emoji-picker .emoji {
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: transform 0.2s ease;
+}
+
+.emoji-picker .emoji:hover {
+  transform: scale(1.2);
+}
+
+
+.emoji-picker2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  width: 220px;
+  position: absolute;
+  top: 170px;
+  left: 80%;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  z-index: 200;
+   max-height: 150px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.emoji-picker2 .emoji {
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: transform 0.2s ease;
+}
+
+.emoji-picker2 .emoji:hover {
+  transform: scale(1.2);
+}
+
+.edit-menu {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  padding: 8px 12px;
+  top: 25px;
+  right: 0;
+  z-index: 10;
+  width: 200px;
+}
+
+.edit-menu a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 8px 0;
+  display: flex;
+  padding-left: 5px;
+}
+
+.edit-menu a:hover {
+  background-color: #f2f2f2;
+  border-radius: 4px;
+}
+
+.settings-panel {
+  display: none;
+  position: absolute;
+  top: 100px; /* adjust as needed */
+  right: 20px;
+  background: white;
+  border-radius: 0px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  padding: 10px;
+  
+  flex-direction: column;
+  
+}
+.light{
+  margin-top: 0.5rem;
+}
+.settings-panel.dark-mode{
+background-color: #242526;
+}
+.settings-panel.dark-mode button{
+  background-color: #3a3b3c;
+  color: #E2E5E9;
+  padding: 10px 10px;
+}
+
+.emoji-container2 {
+  display: none;
+  position: absolute;
+  bottom: 50px; /* appears above the button */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  animation: fadeIn 0.3s ease;
+}
+.emoji-container2.dark-mode{
+  background: #3a3b3c;
+}
+.emoji {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+/*
+.emoji:hover {
+  transform: scale(1.3);
+}
+*/
+.post4-b {
+  position: relative; 
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

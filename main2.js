@@ -32,7 +32,7 @@
   const auth = getAuth(app);
   const db = getFirestore(app);
  
-  
+  /* remove here
   const submit = document.getElementById('sign-up');
 
   submit.addEventListener("click", function(event){
@@ -83,7 +83,7 @@ localStorage.setItem('currentUser', user.uid);
     
   });
   */
- 
+ /* remove also here
   });
 
 
@@ -174,6 +174,91 @@ Accounting.addEventListener('click', (event)=>{
   }
 });
 */
+  const submit = document.getElementById('sign-up');
+
+submit.addEventListener("click", async function(event) {
+  event.preventDefault();
+
+  // Input fields
+  const firstName = document.getElementById('firstname').value.trim();
+  const surName = document.getElementById('surname').value.trim();
+  const selectYear = parseInt(document.getElementById('select-year').value);
+  const selectedGender = document.querySelector('input[name="gender"]:checked')?.value;
+  const email = document.getElementById('email-id').value.trim();
+  const password = document.getElementById('password-id').value.trim();
+
+  // Error elements
+  const ageError = document.getElementById('ageError');
+  const GenderError = document.getElementById('genderError');
+  const FirstNameError = document.getElementById('firstName-error');
+  const SurNameError = document.getElementById('firstName-error2');
+  const EmailAddressError = document.getElementById('email-address-error');
+  const PasswordError = document.getElementById('password-error2');
+
+  // Basic validation
+  let hasError = false;
+
+  if (firstName === "") {
+    FirstNameError.style.display = "block";
+    hasError = true;
+  }
+
+  if (surName === "") {
+    SurNameError.style.display = "block";
+    hasError = true;
+  }
+
+  if (!selectedGender) {
+    GenderError.style.display = "block";
+    hasError = true;
+  }
+
+  if (email === "") {
+    EmailAddressError.style.display = "block";
+    hasError = true;
+  }
+
+  if (password === "") {
+    PasswordError.style.display = "block";
+    hasError = true;
+  }
+
+  // Age check — stop signup if too young
+  if (selectYear > 2007) {
+    ageError.style.display = "block";
+    hasError = true;
+  }
+
+  // If any validation fails, stop the function here
+  if (hasError) {
+    setTimeout(() => {
+      document.querySelectorAll('.fa-circle-exclamation, .error').forEach(e => e.style.display = 'none');
+    }, 1500);
+    return; // ✅ prevent account creation
+  }
+
+  // ✅ Create account only if all inputs are valid
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+
+    await setDoc(doc(db, "users", user.uid), {
+      email: user.email,
+      uid: user.uid,
+      firstName,
+      surName,
+      selectYear,
+      selectedGender,
+    });
+
+    localStorage.setItem('currentUser', user.uid);
+    alert("Account created successfully");
+    window.location.href = "dashboard.html";
+  } catch (error) {
+    alert(error.message);
+  }
+});
+
 
 
 

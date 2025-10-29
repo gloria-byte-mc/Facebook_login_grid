@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create stories | Facebbok</title>
+   <link rel="icon" href="https://www.facebook.com/favicon.ico" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/cc4feaa5b5.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="post2.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+
+
+  <section class="sidebar">
+     <div class="overlay2">
+    <p></p>
+  </div>
+
+
+    <div class="logo">
+      <a href="" class="logo2"> <img src="images/Favicon5.png" alt=""></a>
+    </div>
+
+    <hr>
+
+    <div class="your-story-side" >
+      <h2>Your Story</h2>
+
+      <div class="your-story1">
+       <span id="your-story-span1" class="your-storySpan"></span>
+       <span id="your-story-span2" class="your-storySpan2"></span>
+      </div>
+
+      <hr class="your-story1-hr">
+
+    </div>
+
+
+    <div class="your-story-buttons">
+
+      <button id="add-text">Add Text</button>
+     
+
+    </div>
+
+
+    <div class="save-story">
+  <button class="discard">Discard</button>
+  <button class="share-to-story">Share to story</button>
+
+    </div>
+
+  </section>
+
+
+
+
+  <div class="hero-section-main">
+
+    <div class="overlay2">
+    <div class="discard-container">
+      <div class="discard1">
+       <p>Discard Story?</p>
+       <span class="discard-span"><i class="fa-solid fa-xmark"></i></span>
+      </div>
+
+      <hr>
+
+      <p class="sure2">Are you sure you want to discard this story?Your story wont be saved</p>
+
+      <div class="discard2">
+        <button style="background-color: #0866FF; color: white;" class="discard-button">Discard</button>
+        <button style="background-color: transparent; color: #0866FF; " class="continue-editing">Continue editing</button>
+      </div>
+
+    </div>
+    </div>
+
+  <div class="hero-section">
+
+    <div class="hero1">
+     <p>Preview</p>
+
+     <div class="hero2">
+
+      <div class="overlay">
+    <p>Posting...</p>
+  </div>
+
+      <div class="hero3" >
+       <input type="text" id="text2">
+      </div>
+
+     </div>
+    </div>
+
+
+   
+
+  </div>
+
+  <span id="story-span" style="display: none;"></span>
+  </div>
+
+  <script type="module">
+
+   window.addEventListener('DOMContentLoaded', () => {
+  const currentUser = localStorage.getItem('currentUser');
+  if (currentUser) {
+    const savedImage = localStorage.getItem(`storyImage_${currentUser}`);
+    if (savedImage) {
+    
+     const heroContainer = document.querySelector('.hero3');
+
+     heroContainer.style.backgroundImage = `url(${savedImage})`;
+     heroContainer.style.backgroundSize = "cover";
+     heroContainer.style.backgroundPosition = "center";
+
+
+    }
+  }
+});
+
+const AddText = document.getElementById('add-text');
+
+AddText.addEventListener('click', ()=>{
+
+const Input = document.getElementById('text2');
+Input.focus();
+});
+
+/*
+const ShareToStory = document.querySelector('.share-to-story');
+const currentUser = localStorage.getItem("currentUser");
+
+ShareToStory.addEventListener('click', ()=>{
+  const Input = document.getElementById('text2');
+  const storySpan = document.getElementById('story-span');
+
+ // storySpan.textContent = Input.vaue;
+
+  if (Input && storySpan) {
+    storySpan.textContent = Input.value; // 👈 transfer text
+    Input.value = ''; // optional — clears the input
+  } else {
+    console.warn("Missing element: either #text2 or #story-span not found.");
+  }
+
+  window.location.href = "dashboard.html";
+});
+*/
+
+
+const ShareToStory = document.querySelector('.share-to-story');
+const currentUser = localStorage.getItem("currentUser");
+
+ShareToStory.addEventListener('click', () => {
+  const Overlay = document.querySelector('.overlay');
+  const Input = document.getElementById('text2');
+
+  if (Input) {
+    const storyText = Input.value.trim();
+
+    // Save to localStorage for the logged-in user
+    if (currentUser) {
+      localStorage.setItem(`storyText_${currentUser}`, storyText);
+    } else {
+      console.warn("No current user logged in!");
+      return; // Stop here if no user
+    }
+
+   
+    Input.value = '';
+    
+    Overlay.style.display = "flex";
+    setTimeout(()=>{
+   
+    
+    window.location.href = "dashboard.html";
+    },2000);
+
+   
+  } else {
+    console.warn("Input field #text2 not found!");
+  }
+});
+
+
+const Delete = document.querySelector('.discard');
+
+  Delete.addEventListener('click', ()=>{
+  const Overlay2 = document.querySelectorAll('.overlay2');
+  
+
+Overlay2.forEach(overlay => {
+    overlay.style.display = "flex";
+  });
+
+
+});
+
+
+const ContinueEditing = document.querySelector('.continue-editing');
+
+ContinueEditing.addEventListener('click', ()=>{
+ const Overlay2 = document.querySelectorAll('.overlay2');
+  
+Overlay2.forEach(overlay => {
+    overlay.style.display = "none";
+  });
+
+});
+
+
+const DiscardSpan = document.querySelector('.discard-span');
+
+DiscardSpan.addEventListener('click', ()=>{
+
+  const Overlay2 = document.querySelectorAll('.overlay2');
+  
+  
+Overlay2.forEach(overlay => {
+    overlay.style.display = "none";
+  });
+
+});
+
+/*
+const DiscardButton = document.querySelector('.discard-button');
+
+DiscardButton.addEventListener('click', ()=>{
+
+  const userPostDiv = document.querySelector('.story-container');
+  userPostDiv.style.display = 'none';
+});
+*/
+const DiscardButton = document.querySelector('.discard-button');
+
+DiscardButton.addEventListener('click', ()=> {
+  // Set a flag before redirecting
+  localStorage.setItem('discardStory', 'true');
+
+  // Go back to the dashboard
+  window.location.href = "dashboard.html";
+});
+
+
+
+// Check for dark mode preference on page load
+window.addEventListener('DOMContentLoaded', () => {
+  const isDarkMode = localStorage.getItem('darkMode') === 'true';
+  
+  if (isDarkMode) {
+    // Add dark-mode class to all relevant elements
+    const elements = [
+      document.querySelector('.sidebar'),
+      document.querySelector('.hero-section-main'),
+      document.querySelector('.hero1'),
+      document.querySelector('.your-story-side'),
+      document.querySelector('.your-story-buttons'),
+      document.querySelector('.discard'),
+      document.querySelector('.your-storySpan'),
+      document.querySelector('.your-storySpan2'),
+      document.querySelector('.overlay'),
+      
+      document.querySelector('.discard-container'),
+      document.querySelector('.continue-editing')
+
+      // Add any other elements specific to post2.html
+    ];
+
+    elements.forEach(el => {
+      if (el) el.classList.add('dark-mode');
+    });
+
+    
+  }
+  document.querySelectorAll('.overlay2').forEach(overlay => {
+  overlay.classList.add('dark-mode');
+  });
+
+});
+
+const Logo2 = document.querySelector('.logo2');
+
+Logo2.addEventListener('click',(e)=>{
+  e.preventDefault();
+  document.querySelectorAll('.overlay2').forEach(overlay => {
+    overlay.style.display = "flex";
+
+});
+
+});
+
+
+  </script>
+ 
+</body>
+</html>

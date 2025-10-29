@@ -357,15 +357,15 @@ MoveToBin.addEventListener('click', () => {
   const currentUser = localStorage.getItem("currentUser");
   if (!currentUser) return;
 
-  // Keys to remove
+
   const imageKey = `postImage_${currentUser}`;
   const textKey = `postText_${currentUser}`;
 
-  // Remove both from localStorage
+ 
   localStorage.removeItem(imageKey);
   localStorage.removeItem(textKey);
 
-  // Clear from DOM
+ 
   const postImageDiv = document.getElementById('post-image');
   const postTextDiv = document.getElementById('p2');
   const userPostDiv = document.querySelector('.user-post');
